@@ -23,11 +23,11 @@ OPTIONAL SECTIONS:
 After you're finished please remove all the comments and instructions!
 -->
 
-# To Do List <a name="about-project"></a>
+# Football Leagues <a name="about-project"></a>
 
-**To Do List** is a HTML/CSS/JS project that uses webpack bundling.
+**Football Leagues** is a HTML/CSS/JS project that uses webpack bundling.
 
-[Live Site](https://stunning-bonbon-dbeffd.netlify.app/)
+[Live Site](###)
 
 ## Built With <a name="built-with"></a>
 
