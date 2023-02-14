@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "api-football-leagues",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -35,13 +35,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ditod1/webpack-template.git"
+    "url": "git+https://github.com/ditod1/api-football-leagues.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ditod1/webpack-template/issues"
+    "url": "https://github.com/ditod1/api-football-leagues/issues"
   },
-  "homepage": "https://github.com/ditod1/webpack-template#readme"
+  "homepage": "https://github.com/ditod1/api-football-leagues#readme"
 }
