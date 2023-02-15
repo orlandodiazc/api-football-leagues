@@ -34,12 +34,74 @@
             <div class="card-body">
               <h5 class="card-title"></h5>
               <div class="d-grid gap-2 d-sm-block text-center">
-                <button class="btn btn-primary" type="button">League Table</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target>
+                  Open Table
+                </button>
                 <button class="btn btn-primary" type="button">Top Scorers</button>
               </div>
             </div>
           </div>
         </div>
+      </template>
+      <!-- Modals -->
+      <template id="modal-template">
+        <!-- Add ID, league title, table content-->
+        <div class="modal fade" tabindex="-1" aria-labelledby="League Table" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5"></h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <!-- Table Content -->
+                <table class="table text-center table-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Team</th>
+                      <th>Games</th>
+                      <th>Form</th>
+                      <th>W</th>
+                      <th>D</th>
+                      <th>L</th>
+                      <th>Pts</th>
+                      <th>GF</th>
+                      <th>GA</th>
+                      <th>GD</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body"></tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template id="table-row-template">
+        <tr>
+          <td class="pos"></td>
+          <td class="team"></td>
+          <td class="games"></td>
+          <td class="form"></td>
+          <td class="won"></td>
+          <td class="draw"></td>
+          <td class="lost"></td>
+          <td class="pts"></td>
+          <td class="goal-for"></td>
+          <td class="goal-against"></td>
+          <td class="goal-dif"></td>
+        </tr>
       </template>
     </main>
   </body>
