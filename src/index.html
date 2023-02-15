@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Leagues</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="assets/soccerball.svg"
+              alt="Logo"
+              width="24"
+              height="24"
+              class="d-inline-block align-text-top"
+            />
+            Football Leagues
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div
+        class="league-cards row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container my-1 mx-auto"
+      ></div>
+      <template id="card-template">
+        <div class="col">
+          <div class="card">
+            <img class="card-img-top" alt="Football League Logo" />
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <div class="d-grid gap-2 d-sm-block text-center">
+                <button class="btn btn-primary" type="button">League Table</button>
+                <button class="btn btn-primary" type="button">Top Scorers</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </main>
+  </body>
+</html>

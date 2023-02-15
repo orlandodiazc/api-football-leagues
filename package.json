@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+    "autoprefixer": "^10.4.13",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.3",
     "eslint": "^7.32.0",
@@ -24,6 +25,9 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "lighthouse": "^9.6.8",
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.58.1",
+    "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -43,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/ditod1/api-football-leagues/issues"
   },
-  "homepage": "https://github.com/ditod1/api-football-leagues#readme"
+  "homepage": "https://github.com/ditod1/api-football-leagues#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
 }
