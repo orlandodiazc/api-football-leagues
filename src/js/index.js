@@ -74,7 +74,22 @@ const addModalToDom = (code, name, table) => {
     rowClone.querySelector('.pos').innerText = el.position;
     rowClone.querySelector('.team').innerText = el.team.shortName;
     rowClone.querySelector('.games').innerText = el.playedGames;
-    rowClone.querySelector('.form').innerText = el.form;
+    const form = rowClone.querySelector('.form');
+    // <span class="form badge text-bg-success"></span>
+    el.form.split(',').forEach((tag) => {
+      const span = document.createElement('span');
+      span.classList.add('badge');
+      span.classList.add('me-1');
+      span.innerText = tag;
+      if (tag === 'W') {
+        span.classList.add('text-bg-success');
+      } else if (tag === 'L') {
+        span.classList.add('text-bg-danger');
+      } else {
+        span.classList.add('text-bg-warning');
+      }
+      form.appendChild(span);
+    });
     rowClone.querySelector('.won').innerText = el.won;
     rowClone.querySelector('.draw').innerText = el.draw;
     rowClone.querySelector('.lost').innerText = el.lost;
@@ -92,6 +107,7 @@ const addModalToDom = (code, name, table) => {
 };
 const loadTableModal = () => {
   const data = JSON.parse(localStorage.getItem('leagueStandings'));
+  console.log(data);
   Object.keys(data).forEach((code) => {
     const competitionName = data[code].competition.name;
     const standings = data[code].standings[0].table;
@@ -111,7 +127,7 @@ const loadScorers = async () => {
   console.log(data);
 };
 
-loadScorers();
+// loadScorers();
 
 if (!localStorage.getItem('leagues')) {
   loadLeagues();
