@@ -4,7 +4,6 @@ import { addCardToDOM, addModalToDom, loadTableModalBase } from './js/domManager
 import './scss/styles.scss';
 
 const leagueCodes = ['39', '78'];
-// const leagueList = {};
 const standingsList = {};
 
 const handleTableResponse = (standingsData, code) => {
@@ -22,12 +21,10 @@ const addBtnEventListeners = () => {
       if (localStorage.getItem('standings') && leagueCode in localStanding) {
         const currentStanding = localStanding[leagueCode];
         addModalToDom(leagueCode, currentStanding.name, currentStanding.standings[0]);
-        console.log('local');
       } else {
         fetchTable(leagueCode).then((standingsData) => {
           handleTableResponse(standingsData, leagueCode);
         });
-        console.log('api');
       }
     });
   });
@@ -44,9 +41,7 @@ const loadLocalLeagues = () => {
 loadTableModalBase(leagueCodes);
 
 if (!localStorage.getItem('leagues')) {
-  console.log('api');
   fetchLeagues(leagueCodes).then((leaguesData) => {
-    console.log(leaguesData);
     leaguesData.forEach((data) => {
       addCardToDOM(data.league);
     });
@@ -55,5 +50,4 @@ if (!localStorage.getItem('leagues')) {
   });
 } else {
   loadLocalLeagues();
-  console.log('local');
 }
