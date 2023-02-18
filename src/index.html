@@ -24,6 +24,11 @@
       </nav>
     </header>
     <main>
+      <div class="d-flex justify-content-center mt-4">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
       <div
         class="league-cards row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container my-1 mx-auto"
       ></div>
@@ -62,7 +67,12 @@
               </div>
               <div class="modal-body">
                 <!-- Table Content -->
-                <table class="table text-center table-sm table-striped">
+                <div class="d-flex justify-content-center mt-4">
+                  <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <table class="table text-center table-sm table-striped d-none">
                   <thead>
                     <tr>
                       <th>#</th>

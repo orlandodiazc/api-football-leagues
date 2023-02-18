@@ -42,6 +42,8 @@ const addModalToDom = (code, name, table) => {
     rowClone.querySelector('.goal-dif').innerText = row.goalsDiff;
 
     modal.querySelector('.table-body').appendChild(rowClone);
+    modal.querySelector('table').classList.remove('d-none');
+    modal.querySelector('.spinner-border').classList.add('d-none');
   });
 
   modal.querySelector('.modal-title').innerText = name;

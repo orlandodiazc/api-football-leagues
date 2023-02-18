@@ -35,6 +35,8 @@ const loadLocalLeagues = () => {
   leagues.forEach((data) => {
     addCardToDOM(data.league);
   });
+  const spinner = document.querySelector('.spinner-border');
+  spinner.classList.add('d-none');
   addBtnEventListeners();
 };
 
@@ -45,6 +47,8 @@ if (!localStorage.getItem('leagues')) {
     leaguesData.forEach((data) => {
       addCardToDOM(data.league);
     });
+    const spinner = document.querySelector('.spinner-border');
+    spinner.classList.add('d-none');
     addBtnEventListeners();
     localStorage.setItem('leagues', JSON.stringify(leaguesData));
   });
