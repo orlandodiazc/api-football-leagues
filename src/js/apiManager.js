@@ -15,6 +15,13 @@ const fetchTable = async (code) => {
   return data.response[0].league;
 };
 
+const fetchScorers = async (code) => {
+  const url = `https://v3.football.api-sports.io/players/topscorers?league=${code}&season=2022`;
+  const response = await fetch(url, requestOptions);
+  const data = await response.json();
+  return data.response;
+};
+
 const fetchLeagues = async (leagueCodes) => {
   const result = await Promise.all(
     leagueCodes.map(async (code) => {
@@ -27,4 +34,4 @@ const fetchLeagues = async (leagueCodes) => {
   return result;
 };
 
-export { fetchLeagues, fetchTable };
+export { fetchLeagues, fetchTable, fetchScorers };

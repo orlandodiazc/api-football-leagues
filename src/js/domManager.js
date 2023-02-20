@@ -1,20 +1,29 @@
 const cardContainer = document.querySelector('.league-cards');
 const cardTemplate = document.getElementById('card-template');
-const modalTemplate = document.getElementById('modal-template');
-const rowTemplate = document.getElementById('table-row-template');
+const modalTableTemplate = document.getElementById('modal-table-template');
+const modalScorersTemplate = document.getElementById('modal-scorers-template');
+const rowTableTemplate = document.getElementById('table-row-template');
+const rowScorersTemplate = document.getElementById('table-scorers-row-template');
 
 const addCardToDOM = (currentCompetition) => {
   const cardClone = cardTemplate.content.cloneNode(true);
-  cardClone.querySelector('.card-title').innerText = currentCompetition.name;
-  cardClone.querySelector('img').src = currentCompetition.logo;
-  cardClone.querySelector('[data-bs-target]').dataset.bsTarget = `#league${currentCompetition.id}`;
+  cardClone.querySelector('.card-title').inznerText = currentCompetition.league.name;
+  cardClone.querySelector('.card-img-top').src = currentCompetition.league.logo;
+  cardClone.querySelector('.country-name').innerText = currentCompetition.country.name;
+  cardClone.querySelector('.country-flag').src = currentCompetition.country.flag;
+  cardClone.querySelector(
+    '.open-table',
+  ).dataset.bsTarget = `#league${currentCompetition.league.id}`;
+  cardClone.querySelector(
+    '.open-scorers',
+  ).dataset.bsTarget = `#scorers${currentCompetition.league.id}`;
   cardContainer.appendChild(cardClone);
 };
 
-const addModalToDom = (code, name, table) => {
+const addTableModalToDom = (code, name, table) => {
   const modal = document.querySelector(`#league${code}`);
   table.forEach((row) => {
-    const rowClone = rowTemplate.content.cloneNode(true);
+    const rowClone = rowTableTemplate.content.cloneNode(true);
     rowClone.querySelector('.pos').innerText = row.rank;
     rowClone.querySelector('.team').innerText = row.team.name;
     rowClone.querySelector('.games').innerText = row.all.played;
@@ -49,13 +58,34 @@ const addModalToDom = (code, name, table) => {
   modal.querySelector('.modal-title').innerText = name;
 };
 
+const addScorersModalToDom = (code, name, table) => {
+  const modal = document.querySelector(`#scorers${code}`);
+  table.forEach((row, i) => {
+    const rowClone = rowScorersTemplate.content.cloneNode(true);
+    rowClone.querySelector('.pos').innerText = i;
+    rowClone.querySelector('.player').innerText = row.player.name;
+    rowClone.querySelector('.goals').innerText = row.statistics[0].goals.total;
+    rowClone.querySelector('.assists').innerText = row.statistics[0].goals.assists;
+    modal.querySelector('.table-body').appendChild(rowClone);
+  });
+  modal.querySelector('table').classList.remove('d-none');
+  modal.querySelector('.spinner-border').classList.add('d-none');
+
+  modal.querySelector('.modal-title').innerText = name;
+};
+
 const loadTableModalBase = (leagueCodes) => {
   leagueCodes.forEach((code) => {
-    const modalClone = modalTemplate.content.cloneNode(true);
+    const modalTableClone = modalTableTemplate.content.cloneNode(true);
     const main = document.querySelector('main');
-    modalClone.querySelector('.modal').setAttribute('id', `league${code}`);
-    main.appendChild(modalClone);
+    modalTableClone.querySelector('.modal').setAttribute('id', `league${code}`);
+    main.appendChild(modalTableClone);
+    const modalScorersClone = modalScorersTemplate.content.cloneNode(true);
+    modalScorersClone.querySelector('.modal').setAttribute('id', `scorers${code}`);
+    main.appendChild(modalScorersClone);
   });
 };
 
-export { addCardToDOM, loadTableModalBase, addModalToDom };
+export {
+  addCardToDOM, loadTableModalBase, addTableModalToDom, addScorersModalToDom,
+};
