@@ -7,7 +7,7 @@ const rowScorersTemplate = document.getElementById('table-scorers-row-template')
 
 const addCardToDOM = (currentCompetition) => {
   const cardClone = cardTemplate.content.cloneNode(true);
-  cardClone.querySelector('.card-title').inznerText = currentCompetition.league.name;
+  cardClone.querySelector('.card-title').innerText = currentCompetition.league.name;
   cardClone.querySelector('.card-img-top').src = currentCompetition.league.logo;
   cardClone.querySelector('.country-name').innerText = currentCompetition.country.name;
   cardClone.querySelector('.country-flag').src = currentCompetition.country.flag;
@@ -62,7 +62,7 @@ const addScorersModalToDom = (code, name, table) => {
   const modal = document.querySelector(`#scorers${code}`);
   table.forEach((row, i) => {
     const rowClone = rowScorersTemplate.content.cloneNode(true);
-    rowClone.querySelector('.pos').innerText = i;
+    rowClone.querySelector('.pos').innerText = i + 1;
     rowClone.querySelector('.player').innerText = row.player.name;
     rowClone.querySelector('.goals').innerText = row.statistics[0].goals.total;
     rowClone.querySelector('.assists').innerText = row.statistics[0].goals.assists;
