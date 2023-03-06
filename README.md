@@ -27,7 +27,7 @@ After you're finished please remove all the comments and instructions!
 
 **Football Leagues** is a HTML/CSS/JS project that uses webpack bundling.
 
-[Live Site](###)
+[Live Site](https://dreamy-meerkat-16e093.netlify.app/)
 
 ## Built With <a name="built-with"></a>
 
