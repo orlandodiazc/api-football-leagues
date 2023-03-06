@@ -1,4 +1,3 @@
-import 'bootstrap';
 import { fetchLeagues, fetchScorers, fetchTable } from './js/apiManager.js';
 import { addCardToDOM, addScorersModalToDom, addTableModalToDom } from './js/domManager.js';
 import './scss/styles.scss';
