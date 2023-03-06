@@ -1,13 +1,7 @@
 import { fetchLeagues, fetchScorers, fetchTable } from './js/apiManager.js';
-import {
-  addCardToDOM,
-  addScorersModalToDom,
-  addTableModalToDom,
-  loadTableModalBase,
-} from './js/domManager.js';
+import { addCardToDOM, addScorersModalToDom, addTableModalToDom } from './js/domManager.js';
 import './scss/styles.scss';
 
-const leagueCodes = ['39', '78'];
 const standingsList = {};
 const scorersList = {};
 
@@ -74,10 +68,8 @@ const loadLocalLeagues = () => {
   addBtnEventListenersScorers();
 };
 
-loadTableModalBase(leagueCodes);
-
 if (!localStorage.getItem('leagues')) {
-  fetchLeagues(leagueCodes).then((leaguesData) => {
+  fetchLeagues().then((leaguesData) => {
     leaguesData.forEach((data) => {
       addCardToDOM(data);
     });
