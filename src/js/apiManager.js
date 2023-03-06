@@ -22,28 +22,16 @@ const fetchScorers = async (code) => {
   return data.response;
 };
 
-const fetchLeagues = async () => {
-  const url = 'https://v3.football.api-sports.io/leagues?type=league&season=2022&current=true';
-  const response = await fetch(url, requestOptions);
-  const data = await response.json();
-  const result = data.response.filter((league) => {
-    const { coverage } = league.seasons[0];
-    return (
-      coverage.standings
-      && coverage.players
-      && coverage.top_scorers
-      && coverage.top_assists
-      && coverage.top_cards
-      && coverage.injuries
-      && coverage.predictions
-      && coverage.odds
-      && coverage.fixtures.events
-      && coverage.fixtures.lineups
-      && coverage.fixtures.statistics_fixtures
-      && coverage.fixtures.statistics_players
-    );
-  });
-  return result.splice(0, 10);
+const fetchLeagues = async (leagueCodes) => {
+  const result = await Promise.all(
+    leagueCodes.map(async (code) => {
+      const url = `https://v3.football.api-sports.io/leagues?id=${code}`;
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+      return data.response[0];
+    }),
+  );
+  return result;
 };
 
 export { fetchLeagues, fetchTable, fetchScorers };
