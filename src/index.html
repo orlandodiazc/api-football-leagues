@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Leagues</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="assets/soccerball.svg"
+              alt="Logo"
+              width="24"
+              height="24"
+              class="d-inline-block align-text-top"
+            />
+            Football Leagues
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="d-flex justify-content-center mt-1">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div
+        class="league-cards row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container my-1 mx-auto"
+      ></div>
+      <template id="card-template">
+        <div class="col">
+          <div class="card">
+            <img class="card-img-top" alt="Football League Logo" />
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <div class="country-information d-flex mb-2">
+                <p class="country-name my-0 me-1"></p>
+                <img class="country-flag" alt="Country Flag" style="width: 24px" />
+              </div>
+              <div class="d-flex gap-1 flex-column btn-league-info">
+                <button
+                  type="button"
+                  class="open-table btn btn-primary flex-fill"
+                  data-bs-toggle="modal"
+                  data-bs-target
+                >
+                  Current Table
+                </button>
+                <button
+                  type="button"
+                  class="open-scorers btn btn-primary flex-fill"
+                  data-bs-toggle="modal"
+                  data-bs-target
+                >
+                  Top Scorers
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <!-- Modals -->
+      <template id="modal-table-template">
+        <!-- Add ID, league title, table content-->
+        <div
+          class="modal fade"
+          tabindex="-1"
+          aria-labelledby="League Information"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5"></h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body pt-0">
+                <!-- Table Content -->
+                <div class="d-flex justify-content-center mt-4">
+                  <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <table class="table text-center table-sm table-striped d-none">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Team</th>
+                      <th>Games</th>
+                      <th>Form</th>
+                      <th>W</th>
+                      <th>D</th>
+                      <th>L</th>
+                      <th>Pts</th>
+                      <th>GF</th>
+                      <th>GA</th>
+                      <th>GD</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body"></tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template id="table-row-template">
+        <tr>
+          <td class="pos"></td>
+          <td class="team"></td>
+          <td class="games"></td>
+          <td class="form"></td>
+          <td class="won"></td>
+          <td class="draw"></td>
+          <td class="lost"></td>
+          <td class="pts"></td>
+          <td class="goal-for"></td>
+          <td class="goal-against"></td>
+          <td class="goal-dif"></td>
+        </tr>
+      </template>
+      <template id="modal-scorers-template">
+        <!-- Add ID, league title, table content-->
+        <div
+          class="modal fade"
+          tabindex="-1"
+          aria-labelledby="League Information"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5"></h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body pt-0">
+                <!-- Table Content -->
+                <div class="d-flex justify-content-center mt-4">
+                  <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <table class="table text-center table-sm table-striped d-none">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Player</th>
+                      <th>Goals</th>
+                      <th>Assists</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body"></tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template id="table-scorers-row-template">
+        <tr>
+          <td class="pos"></td>
+          <td class="player"></td>
+          <td class="goals"></td>
+          <td class="assists"></td>
+        </tr>
+      </template>
+    </main>
+  </body>
+</html>
